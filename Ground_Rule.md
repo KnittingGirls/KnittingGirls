@@ -1,4 +1,4 @@
-# KnittingGirls
+# KnittingGirls' Ground Rule
 
 ### 🤖 회의
 
