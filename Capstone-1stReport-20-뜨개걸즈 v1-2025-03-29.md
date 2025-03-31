@@ -139,7 +139,7 @@
 | **(5) 전체 시스템 구성 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** | ![그림2](https://github.com/user-attachments/assets/bad11cb2-9fc9-4897-98db-65a871db333b) <br> FE (Frontend): React Native v.0.75, Node.js, Expo <br> BE (Backend): Spring Boot 3.1.0, Spring Security 6.1.0, Spring Data JPA <br>  - DB: MySQL 8.0.40 <br>  - 회원가입 및 로그인: JWT 0.11.2, Kakao login REST API <br>  - BE-AI 연동: FastAPI <br> AI: DeepLabV3+, OpenCV, DeepFashion2 || 
 
 
-    (6) 주요엔진 및 기능 설계
+**(6) 주요엔진 및 기능 설계**
     
     
     1. DeepLabV3+           
