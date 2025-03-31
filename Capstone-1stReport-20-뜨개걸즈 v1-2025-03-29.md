@@ -28,129 +28,144 @@
 | **(2) 전체 시스템 구성** | 그림 |
 | **(3) 주요엔진 및 기능 설계** | 어이어이 |
 | **(4) 주요 기능의 구현** | 어이어이어ㅣ |
-| **(5) 기타** | *기타 사항을 기술*  |
 
-(1) 요구사항 정의
+**(1) 요구사항 정의**
 - use case
  ![image (5)](https://github.com/user-attachments/assets/3d0fb582-a004-4b5c-8e4a-686985e61a9b)
 - 클래스 다이어그램 & 명세서
 ![image (6)](https://github.com/user-attachments/assets/9d5758a8-9ab4-4af3-9aa1-b9fd1eafd968) 
 
 - 클래스/모듈 명세서
-  1. User
     
-    - 사용자 정보를 저장하는 클래스
-    - 속성:
-        - id: (int) 고유 사용자 ID
-        - username: (string) 사용자 이름
-        - email: (string) 이메일 주소
-        - created_at: (datetime) 계정 생성 날짜
-    - 관계:
-        - 여러 개의 Post를 작성할 수 있음 (1:N)
-        - 여러 개의 Comment를 작성할 수 있음 (1:N)
-        - 여러 개의 Bookmark를 가질 수 있음 (1:N)
-        - 여러 개의 Like를 가질 수 있음 (N:M)
-        - 여러 개의 Image를 업로드할 수 있음 (1:N)
-    
-    2. Post
-    
-    - 커뮤니티에서 작성된 게시글 정보를 저장하는 클래스
-    - 속성:
-        - id: (int) 고유 게시글 ID
-        - title: (string) 게시글 제목
-        - content: (string) 게시글 내용
-        - created_at: (datetime) 게시글 작성 날짜
-        - user_id: (int) 작성자 ID
-    - 관계:
-        - 여러 개의 Comment를 가질 수 있음 (1:N)
-        - 여러 개의 Bookmark를 가질 수 있음 (1:N)
-        - 여러 개의 Like를 받을 수 있음 (N:M)
-        - 여러 개의 PostImage를 포함할 수 있음 (1:N)
-        - 여러 개의 PostHashtag를 가질 수 있음 (1:N)
-    
-    3. Comment
-    
-    - 게시글에 작성된 댓글 정보를 저장하는 클래스
-    - 속성:
-        - id: (int) 고유 댓글 ID
-        - content: (string) 댓글 내용
-        - created_at: (datetime) 댓글 작성 날짜
-        - user_id: (int) 작성자 ID
-        - post_id: (int) 게시글 ID
-    
-    4. Bookmark
-    
-    - 사용자가 게시글을 북마크한 정보를 저장하는 클래스
-    - 속성:
-        - id: (int) 고유 북마크 ID
-        - user_id: (int) 북마크한 사용자 ID
-        - post_id: (int) 북마크된 게시글 ID
-    
-    5. Like
-    
-    - 사용자가 게시글에 좋아요를 누른 정보를 저장하는 클래스
-    - 속성:
-        - id: (int) 고유 좋아요 ID
-        - user_id: (int) 좋아요를 누른 사용자 ID
-        - post_id: (int) 좋아요를 받은 게시글 ID
-    
-    6. Image
-    
-    - 게시글에 포함된 이미지를 저장하는 클래스
-    - 속성:
-        - id: (int) 고유 이미지 ID
-        - image_name: (string) 이미지 파일명
-        - image_data: (binary) 이미지 데이터
-        - upload_date: (datetime) 업로드 시간
-        - post_id: (int) 관련 게시글 ID
-    
-    7. Hashtag
-    
-    - 게시글에 지정된 해시태그 정보를 저장하는 클래스
-    - 속성:
-        - post_id: (int) 게시글 ID
-        - hashtag: (string) 해시태그 내용
-    
-    9. Input Image
-    
-    - 설명: 도안 생성 시 사용자가 업로드한 이미지를 저장하는 클래스
-    - 관계:
-        - DeepLab_Model, OpenCV_Processor, DeepFashion_Model이 이 이미지를 처리함
-    
-    10. DeepLab Model
-    
-    - image segmentation 수행 모델
-    - 메서드:
-        - segment_image(): 뜨개질 기법 클래스 인식 수행
-    
-    11. OpenCV_Processor
-    
-    - OpenCV를 사용해 이미지 후처리 및 도안 생성하는 클래스
-    - 메서드:
-        - process_image(): 이미지 처리 수행
-    
-    12. DeepFashion_Model
-    
-    - 이미지 왜곡 보정 모델
-    - 메서드:
-        - refine_image(): 왜곡 보정 수행
-    
-    13. Pattern
-    
-    - 최종 생성된 도안
-    - 관계:
-        - DeepLab_Model, OpenCV_Processor, DeepFashion_Model이 이 도안을 생성함
-        - User가 최종적으로 다운로드함
+      1. User
+      - 사용자 정보를 저장하는 클래스
+      - 속성:
+          - id: (int) 고유 사용자 ID
+          - username: (string) 사용자 이름
+          - email: (string) 이메일 주소
+          - created_at: (datetime) 계정 생성 날짜
+      - 관계:
+          - 여러 개의 Post를 작성할 수 있음 (1:N)
+          - 여러 개의 Comment를 작성할 수 있음 (1:N)
+          - 여러 개의 Bookmark를 가질 수 있음 (1:N)
+          - 여러 개의 Like를 가질 수 있음 (N:M)
+          - 여러 개의 Image를 업로드할 수 있음 (1:N)
+      
+      2. Post
+      
+      - 커뮤니티에서 작성된 게시글 정보를 저장하는 클래스
+      - 속성:
+          - id: (int) 고유 게시글 ID
+          - title: (string) 게시글 제목
+          - content: (string) 게시글 내용
+          - created_at: (datetime) 게시글 작성 날짜
+          - user_id: (int) 작성자 ID
+      - 관계:
+          - 여러 개의 Comment를 가질 수 있음 (1:N)
+          - 여러 개의 Bookmark를 가질 수 있음 (1:N)
+          - 여러 개의 Like를 받을 수 있음 (N:M)
+          - 여러 개의 PostImage를 포함할 수 있음 (1:N)
+          - 여러 개의 PostHashtag를 가질 수 있음 (1:N)
+      
+      3. Comment
+      
+      - 게시글에 작성된 댓글 정보를 저장하는 클래스
+      - 속성:
+          - id: (int) 고유 댓글 ID
+          - content: (string) 댓글 내용
+          - created_at: (datetime) 댓글 작성 날짜
+          - user_id: (int) 작성자 ID
+          - post_id: (int) 게시글 ID
+      
+      4. Bookmark
+      
+      - 사용자가 게시글을 북마크한 정보를 저장하는 클래스
+      - 속성:
+          - id: (int) 고유 북마크 ID
+          - user_id: (int) 북마크한 사용자 ID
+          - post_id: (int) 북마크된 게시글 ID
+      
+      5. Like
+      
+      - 사용자가 게시글에 좋아요를 누른 정보를 저장하는 클래스
+      - 속성:
+          - id: (int) 고유 좋아요 ID
+          - user_id: (int) 좋아요를 누른 사용자 ID
+          - post_id: (int) 좋아요를 받은 게시글 ID
+      
+      6. Image
+      
+      - 게시글에 포함된 이미지를 저장하는 클래스
+      - 속성:
+          - id: (int) 고유 이미지 ID
+          - image_name: (string) 이미지 파일명
+          - image_data: (binary) 이미지 데이터
+          - upload_date: (datetime) 업로드 시간
+          - post_id: (int) 관련 게시글 ID
+      
+      7. Hashtag
+      
+      - 게시글에 지정된 해시태그 정보를 저장하는 클래스
+      - 속성:
+          - post_id: (int) 게시글 ID
+          - hashtag: (string) 해시태그 내용
+      
+      9. Input Image
+      
+      - 설명: 도안 생성 시 사용자가 업로드한 이미지를 저장하는 클래스
+      - 관계:
+          - DeepLab_Model, OpenCV_Processor, DeepFashion_Model이 이 이미지를 처리함
+      
+      10. DeepLab Model
+      
+      - image segmentation 수행 모델
+      - 메서드:
+          - segment_image(): 뜨개질 기법 클래스 인식 수행
+      
+      11. OpenCV_Processor
+      
+      - OpenCV를 사용해 이미지 후처리 및 도안 생성하는 클래스
+      - 메서드:
+          - process_image(): 이미지 처리 수행
+      
+      12. DeepFashion_Model
+      
+      - 이미지 왜곡 보정 모델
+      - 메서드:
+          - refine_image(): 왜곡 보정 수행
+      
+      13. Pattern
+      
+      - 최종 생성된 도안
+      - 관계:
+          - DeepLab_Model, OpenCV_Processor, DeepFashion_Model이 이 도안을 생성함
+          - User가 최종적으로 다운로드함
 - UI 분석/설계 모델
- ![Group 3](https://github.com/user-attachments/assets/7b70db36-1f24-4bec-afec-79c1e84b6999) <br> <주요 기능> <br> - 도안 생성 기능 <br> - 도안 생성 과정 안내 페이지→ 이미지 업로드 페이지(도안 만들 스웨터 이미지 업로드) → 도안 확인 및 저장 페이지 <br> - 커뮤니티 기능 <br> - 게시물 전체 조회 페이지 → 게시물 작성 페이지/ 각 게시물 조회 페이지/스크랩한 글 페이지 < br> - 사이드바로 접근 → 내가 쓴 글 페이지/스크랩한 글 페이지 <br>
+ ![Group 3](https://github.com/user-attachments/assets/7b70db36-1f24-4bec-afec-79c1e84b6999)
+
+      <주요 기능>
+      1. 도안 생성 기능
+        - 도안 생성 과정 안내 페이지→ 이미지 업로드 페이지(도안 만들 스웨터 이미지 업로드) → 도안 확인 및 저장 페이지
+      2. 커뮤니티 기능
+        - 게시물 전체 조회 페이지 → 게시물 작성 페이지/ 각 게시물 조회 페이지/스크랩한 글 페이지
+        - 사이드바로 접근 → 내가 쓴 글 페이지/스크랩한 글 페이지
+ 
 - E-R 다이어그램
   ![image (7)](https://github.com/user-attachments/assets/52f3c70d-7977-4e3b-ada6-6ada1cb64b7a)
   
 **(2) 전체 시스템 구성**
-![그림2](https://github.com/user-attachments/assets/bad11cb2-9fc9-4897-98db-65a871db333b) <br> FE (Frontend): React Native v.0.75, Node.js, Expo <br> BE (Backend): Spring Boot 3.1.0, Spring Security 6.1.0, Spring Data JPA <br>  - DB: MySQL 8.0.40 <br>  - 회원가입 및 로그인: JWT 0.11.2, Kakao login REST API <br>  - BE-AI 연동: FastAPI <br> AI: DeepLabV3+, OpenCV, DeepFashion2 
+![그림2](https://github.com/user-attachments/assets/bad11cb2-9fc9-4897-98db-65a871db333b) <br>
+
+     FE (Frontend): React Native v.0.75, Node.js, Expo
+     BE (Backend): Spring Boot 3.1.0, Spring Security 6.1.0, Spring Data JPA
+       - DB: MySQL 8.0.40
+       - 회원가입 및 로그인: JWT 0.11.2, Kakao login REST API
+       - BE-AI 연동: FastAPI
+     AI: DeepLabV3+, OpenCV, DeepFashion2 
 
 
 **(3) 주요엔진 및 기능 설계**
+
     1. DeepLabV3+           
     [DeepLabV3+](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) - 총 5가지 주요 뜨개질 기법(single jersey, rib, purl, ajour, moss)을 각각의 클래스로 지정한 뒤, 라벨링 및 전처리 과정을 거친 약 1만개의 데이터를 DeepLabV3 모델에 학습시켜 image segmentation 기술을 구현하였다. |
     
