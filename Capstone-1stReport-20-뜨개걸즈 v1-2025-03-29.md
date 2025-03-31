@@ -136,14 +136,7 @@
 |:---  |---  |
 | **(3)UI 분석/설계 모델** |  ![Group 3](https://github.com/user-attachments/assets/7b70db36-1f24-4bec-afec-79c1e84b6999) <br> <주요 기능> <br> - 도안 생성 기능 <br> - 도안 생성 과정 안내 페이지→ 이미지 업로드 페이지(도안 만들 스웨터 이미지 업로드) → 도안 확인 및 저장 페이지 <br> - 커뮤니티 기능 <br> - 게시물 전체 조회 페이지 → 게시물 작성 페이지/ 각 게시물 조회 페이지/스크랩한 글 페이지 < br> - 사이드바로 접근 → 내가 쓴 글 페이지/스크랩한 글 페이지 <br> |  
 | **(4) E-R 다이어그램/<br>DB 설계 모델<br>(테이블 구조)** | ![image (7)](https://github.com/user-attachments/assets/52f3c70d-7977-4e3b-ada6-6ada1cb64b7a) |
-| **(5) 전체 시스템 구성 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** | *![그림2](https://github.com/user-attachments/assets/bad11cb2-9fc9-4897-98db-65a871db333b) | 
-| **FE (Frontend)**        | React Native v.0.75, Node.js, Expo |
-| **BE (Backend)**         | Spring Boot 3.1.0 & Spring Security 6.1.0 & Spring Data JPA |
-| **DB**                   | MySQL 8.0.40 |
-| **회원가입 및 로그인**   | JWT 0.11.2 & Kakao login REST API |
-| **BE-AI 연동**            | Fast API |
-| **AI**                   | DeepLabV3+, OpenCV, DeepFashion2 |
-
+| **(5) 전체 시스템 구성 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** | ![그림2](https://github.com/user-attachments/assets/bad11cb2-9fc9-4897-98db-65a871db333b) <br> FE (Frontend): React Native v.0.75, Node.js, Expo <br> BE (Backend): Spring Boot 3.1.0, Spring Security 6.1.0, Spring Data JPA <br>  - DB: MySQL 8.0.40 <br>  - 회원가입 및 로그인: JWT 0.11.2, Kakao login REST API <br>  - BE-AI 연동: FastAPI <br> AI: DeepLabV3+, OpenCV, DeepFashion2 || 
 
 
     (6) 주요엔진 및 기능 설계
