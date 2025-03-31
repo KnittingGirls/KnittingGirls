@@ -24,13 +24,13 @@
 # Project-Design & Implementation
 | 항목 | 내용 |
 |:---  |---  |
-| **(1) 요구사항 정의** | [1. use-case](#use-case) <br> [2. 클래스 다이어그램 & 명세서](#클래스-다이어그램-명세서) <br> [3. UI 분석/설계 모델](#UI-분석-설계-모델) <br> [4. E-R 다이어그램](#E-R-다이어그램) |
+| **(1) 요구사항 정의** | [1. 유스케이스 다이어그램](#유스케이스-다이어그램) <br> [2. 클래스 다이어그램 & 명세서](#클래스-다이어그램-명세서) <br> [3. UI 분석/설계 모델](#UI-분석-설계-모델) <br> [4. E-R 다이어그램](#E-R-다이어그램) |
 | **(2) 전체 시스템 구성** | [(2) 전체 시스템 구성](#2-전체-시스템-구성) |
 | **(3) 주요엔진 및 기능 설계** | [(3) 주요엔진 및 기능 설계](#3-주요엔진-및-기능-설계) |
-| **(4) 주요 기능의 구현** | [(4) 주요 기능의 구현](#4-주요-기능의-구현) |
+| **(4) 주요 기능의 구현 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** | [(4) 주요 기능의 구현](#4-주요-기능의-구현) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 
 ## (1) 요구사항 정의
-### use case 
+### 유스케이스 다이어그램
  ![image (5)](https://github.com/user-attachments/assets/3d0fb582-a004-4b5c-8e4a-686985e61a9b)
  
 ### 클래스 다이어그램-명세서
