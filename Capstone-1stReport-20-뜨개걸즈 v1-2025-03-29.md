@@ -30,9 +30,10 @@
 | **(4) 주요 기능의 구현** | 어이어이어ㅣ |
 
 **(1) 요구사항 정의**
-## use case ##
+## use case 
  ![image (5)](https://github.com/user-attachments/assets/3d0fb582-a004-4b5c-8e4a-686985e61a9b)
-## 클래스 다이어그램 & 명세서 ##
+ 
+## 클래스 다이어그램 & 명세서
 ![image (6)](https://github.com/user-attachments/assets/9d5758a8-9ab4-4af3-9aa1-b9fd1eafd968) 
 
 - 클래스/모듈 명세서
