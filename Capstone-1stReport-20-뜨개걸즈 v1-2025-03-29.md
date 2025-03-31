@@ -1,5 +1,5 @@
 # Team-Info
-| **(1) 과제명** | *도안을 구하기 어려운 뜨개인들을 위해 Image Segmentation(DeepLab)을 활용하여 제품 이미지에서 뜨개질 패턴 추출 및 도안을 생성하고 커뮤니티 기능을 제공하는 서비스* |
+| **(1) 과제명** | 도안을 구하기 어려운 뜨개인들을 위해 Image Segmentation(DeepLab)을 활용하여 제품 이미지에서 뜨개질 패턴 추출 및 도안을 생성하고 커뮤니티 기능을 제공하는 서비스 |
 |:---  |---  |
 | **(2) 팀 번호 / 팀 이름**  | 20-뜨개걸즈 |
 | **(3) 팀 구성원** | 이유진 (2176279): 리더, FE 담당 / UI 설계 / FE-BE 연동 <br> 박지현 (2171016): 팀원, AI 담당 / 데이터 크롤링 및 데이터 전처리 / 모델 성능 개선 및 뜨개 도안 생성 담당 / 모델-케이션 연결 <br> 서자영 (2170045) : 팀원, BE 담당 / DB 설계 및 관리 / 데이터 전처리 & BE API 개발 / FE-BE 연동 및 최종 서버 배포			 |
@@ -24,11 +24,20 @@
 # Project-Design & Implementation
 | 항목 | 내용 |
 |:---  |---  |
-| **(1) 요구사항 정의** | ![image (5)](https://github.com/user-attachments/assets/3d0fb582-a004-4b5c-8e4a-686985e61a9b)
-| **(2) 설계 모델<br>(클래스 다이어그램,<br> 클래스 및 모듈 명세서) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** | ![image (6)](https://github.com/user-attachments/assets/9d5758a8-9ab4-4af3-9aa1-b9fd1eafd968) 
+| **(1) 요구사항 정의** | 1. use-case <br> 2. 클래스 다이어그램 & 명세서 <br> 3. UI 분석/설계 모델 <br> E-R 다이어그램 |
+| **(2) 전체 시스템 구성** | 그림 |
+| **(3) 주요엔진 및 기능 설계** | 어이어이 |
+| **(4) 주요 기능의 구현** | 어이어이어ㅣ |
+| **(5) 기타** | *기타 사항을 기술*  |
 
-    클래스/모듈 명세서 
-    1. User
+(1) 요구사항 정의
+- use case
+ ![image (5)](https://github.com/user-attachments/assets/3d0fb582-a004-4b5c-8e4a-686985e61a9b)
+- 클래스 다이어그램 & 명세서
+![image (6)](https://github.com/user-attachments/assets/9d5758a8-9ab4-4af3-9aa1-b9fd1eafd968) 
+
+- 클래스/모듈 명세서
+  1. User
     
     - 사용자 정보를 저장하는 클래스
     - 속성:
@@ -132,16 +141,16 @@
     - 관계:
         - DeepLab_Model, OpenCV_Processor, DeepFashion_Model이 이 도안을 생성함
         - User가 최종적으로 다운로드함
-| 항목 | 내용 |
-|:---  |---  |
-| **(3)UI 분석/설계 모델** |  ![Group 3](https://github.com/user-attachments/assets/7b70db36-1f24-4bec-afec-79c1e84b6999) <br> <주요 기능> <br> - 도안 생성 기능 <br> - 도안 생성 과정 안내 페이지→ 이미지 업로드 페이지(도안 만들 스웨터 이미지 업로드) → 도안 확인 및 저장 페이지 <br> - 커뮤니티 기능 <br> - 게시물 전체 조회 페이지 → 게시물 작성 페이지/ 각 게시물 조회 페이지/스크랩한 글 페이지 < br> - 사이드바로 접근 → 내가 쓴 글 페이지/스크랩한 글 페이지 <br> |  
-| **(4) E-R 다이어그램/<br>DB 설계 모델<br>(테이블 구조)** | ![image (7)](https://github.com/user-attachments/assets/52f3c70d-7977-4e3b-ada6-6ada1cb64b7a) |
-| **(5) 전체 시스템 구성 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** | ![그림2](https://github.com/user-attachments/assets/bad11cb2-9fc9-4897-98db-65a871db333b) <br> FE (Frontend): React Native v.0.75, Node.js, Expo <br> BE (Backend): Spring Boot 3.1.0, Spring Security 6.1.0, Spring Data JPA <br>  - DB: MySQL 8.0.40 <br>  - 회원가입 및 로그인: JWT 0.11.2, Kakao login REST API <br>  - BE-AI 연동: FastAPI <br> AI: DeepLabV3+, OpenCV, DeepFashion2 || 
+- UI 분석/설계 모델
+ ![Group 3](https://github.com/user-attachments/assets/7b70db36-1f24-4bec-afec-79c1e84b6999) <br> <주요 기능> <br> - 도안 생성 기능 <br> - 도안 생성 과정 안내 페이지→ 이미지 업로드 페이지(도안 만들 스웨터 이미지 업로드) → 도안 확인 및 저장 페이지 <br> - 커뮤니티 기능 <br> - 게시물 전체 조회 페이지 → 게시물 작성 페이지/ 각 게시물 조회 페이지/스크랩한 글 페이지 < br> - 사이드바로 접근 → 내가 쓴 글 페이지/스크랩한 글 페이지 <br>
+- E-R 다이어그램
+  ![image (7)](https://github.com/user-attachments/assets/52f3c70d-7977-4e3b-ada6-6ada1cb64b7a)
+  
+**(2) 전체 시스템 구성**
+![그림2](https://github.com/user-attachments/assets/bad11cb2-9fc9-4897-98db-65a871db333b) <br> FE (Frontend): React Native v.0.75, Node.js, Expo <br> BE (Backend): Spring Boot 3.1.0, Spring Security 6.1.0, Spring Data JPA <br>  - DB: MySQL 8.0.40 <br>  - 회원가입 및 로그인: JWT 0.11.2, Kakao login REST API <br>  - BE-AI 연동: FastAPI <br> AI: DeepLabV3+, OpenCV, DeepFashion2 
 
 
-**(6) 주요엔진 및 기능 설계**
-    
-    
+**(3) 주요엔진 및 기능 설계**
     1. DeepLabV3+           
     [DeepLabV3+](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) - 총 5가지 주요 뜨개질 기법(single jersey, rib, purl, ajour, moss)을 각각의 클래스로 지정한 뒤, 라벨링 및 전처리 과정을 거친 약 1만개의 데이터를 DeepLabV3 모델에 학습시켜 image segmentation 기술을 구현하였다. |
     
@@ -163,7 +172,7 @@
     7. 해시태그/작가명 검색
     게시글을 해시태그 또는 작가명으로 검색할 수 있다. 각 게시글에 있는 해시태그와, 게시글 작성자명으로 검색을 할 수 있다. 이를 통해 빠른 정보 탐색이 가능하다.
        
-**(7) 주요 기능의 구현** 
+**(4) 주요 기능의 구현** 
 
 | **기능**                       | **설명**                                                                                                                                                        | **진척도 및 검증**                                                                                                                                                  | **이미지/기타** |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
