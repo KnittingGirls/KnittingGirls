@@ -24,7 +24,7 @@
 # Project-Design & Implementation
 | 항목 | 내용 |
 |:---  |---  |
-| **(1) 요구사항 정의** | [1.use-case](#use-case) <br> 2. 클래스 다이어그램 & 명세서 <br> 3. UI 분석/설계 모델 <br> E-R 다이어그램 |
+| **(1) 요구사항 정의** | [1. use-case](#use-case) <br> [2. 클래스 다이어그램 & 명세서](#클래스-다이어그램-&-명세서) <br> [3. UI 분석/설계 모델](#UI-분석/설계-모델) <br> [4. E-R 다이어그램](#E-R-다이어그램) |
 | **(2) 전체 시스템 구성** | 그림 |
 | **(3) 주요엔진 및 기능 설계** | 어이어이 |
 | **(4) 주요 기능의 구현** | 어이어이어ㅣ |
@@ -32,7 +32,7 @@
 **(1) 요구사항 정의**
 ## use case ##
  ![image (5)](https://github.com/user-attachments/assets/3d0fb582-a004-4b5c-8e4a-686985e61a9b)
-- 클래스 다이어그램 & 명세서
+## 클래스 다이어그램 & 명세서 ##
 ![image (6)](https://github.com/user-attachments/assets/9d5758a8-9ab4-4af3-9aa1-b9fd1eafd968) 
 
 - 클래스/모듈 명세서
@@ -140,7 +140,7 @@
       - 관계:
           - DeepLab_Model, OpenCV_Processor, DeepFashion_Model이 이 도안을 생성함
           - User가 최종적으로 다운로드함
-- UI 분석/설계 모델
+## UI 분석/설계 모델 ##
  ![Group 3](https://github.com/user-attachments/assets/7b70db36-1f24-4bec-afec-79c1e84b6999)
 
       <주요 기능>
@@ -150,7 +150,7 @@
         - 게시물 전체 조회 페이지 → 게시물 작성 페이지/ 각 게시물 조회 페이지/스크랩한 글 페이지
         - 사이드바로 접근 → 내가 쓴 글 페이지/스크랩한 글 페이지
  
-- E-R 다이어그램
+## E-R 다이어그램 ##
   ![image (7)](https://github.com/user-attachments/assets/52f3c70d-7977-4e3b-ada6-6ada1cb64b7a)
   
 **(2) 전체 시스템 구성**
