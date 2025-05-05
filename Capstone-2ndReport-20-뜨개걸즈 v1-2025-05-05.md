@@ -34,8 +34,8 @@
  ![image (5)](https://github.com/user-attachments/assets/3d0fb582-a004-4b5c-8e4a-686985e61a9b)
  
 ### 클래스 다이어그램-명세서
-![image (6)](https://github.com/user-attachments/assets/9d5758a8-9ab4-4af3-9aa1-b9fd1eafd968) 
-
+![111](https://github.com/user-attachments/assets/75fe941a-326a-4790-a2af-b648f7ce8485)
+*이미지 수정*
 - 클래스/모듈 명세서
     
       1. User
