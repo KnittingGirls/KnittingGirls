@@ -111,33 +111,33 @@
           - post_id: (int) 게시글 ID
           - hashtag: (string) 해시태그 내용
       
-      9. Input Image
+      <del>9</del><i>8</i>. Input Image
       
       - 설명: 도안 생성 시 사용자가 업로드한 이미지를 저장하는 클래스
       - 관계:
           - DeepLab_Model, OpenCV_Processor, <del>DeepFashion_Model</del><i>SCHP(Self-Correction-Human-Parsing)_Model</i>이 이 이미지를 처리함
       
-      10. DeepLab Model
+      <del>10</del><i>9</i>. DeepLab Model
       
       - image segmentation 수행 모델
       - 메서드:
           - segment_image(): 뜨개질 기법 클래스 인식 수행
       
-      11. OpenCV_Processor
+      <del>11</del><i>10</i>. OpenCV_Processor
       
       - OpenCV를 사용해 이미지 후처리 및 도안 생성하는 클래스
       - 메서드:
           - process_image(): 이미지 처리 수행
       
       <del>Deep Fashion_Model</del>
-      <i>12. SCHP(Self-Correction-Human-Parsing)_Model</i>
+      <del>12</del><i>11. SCHP(Self-Correction-Human-Parsing)_Model</i>
 
       <del>- 이미지 왜곡 보정 모델</del>
       <i>- 도안을 몸통/소매 등 파트별로 분리</i>
       - 메서드:
           - refine_image(): 파트별 도안 분리 수행
       
-      13. Pattern
+      <del>13</del><i>12</i>. Pattern
       
       - 최종 생성된 도안
       - 관계:
