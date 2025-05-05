@@ -37,7 +37,7 @@
 ![111](https://github.com/user-attachments/assets/75fe941a-326a-4790-a2af-b648f7ce8485)
 *이미지 수정*
 - 클래스/모듈 명세서
-    
+<pre><code>    
       1. User
       - 사용자 정보를 저장하는 클래스
       - 속성:
@@ -115,7 +115,7 @@
       
       - 설명: 도안 생성 시 사용자가 업로드한 이미지를 저장하는 클래스
       - 관계:
-          - DeepLab_Model, OpenCV_Processor, SCHP(Self-Correction-Human-Parsing)_Model이 이 이미지를 처리함
+          - DeepLab_Model, OpenCV_Processor, <del>DeepFashion_Model</del><i>SCHP(Self-Correction-Human-Parsing)_Model</i>이 이 이미지를 처리함
       
       10. DeepLab Model
       
@@ -129,9 +129,9 @@
       - 메서드:
           - process_image(): 이미지 처리 수행
       
-      12. SCHP(Self-Correction-Human-Parsing)_Model
+      <i>12. SCHP(Self-Correction-Human-Parsing)_Model
       
-      - 도안을 몸통/소매 등 파트별로 분리
+      - 도안을 몸통/소매 등 파트별로 분리</i>
       - 메서드:
           - refine_image(): 파트별 도안 분리 수행
       
@@ -139,8 +139,9 @@
       
       - 최종 생성된 도안
       - 관계:
-          - DeepLab_Model, OpenCV_Processor, SCHP(Self-Correction-Human-Parsing)_Model이 이 도안을 생성함
+          - DeepLab_Model, OpenCV_Processor, <del>DeepFashion_Model</del> <i>SCHP(Self-Correction-Human-Parsing)_Model</i>이 이 도안을 생성함
           - User가 최종적으로 다운로드함
+ </code></pre>
 ### UI 분석-설계 모델 
  ![Group 3](https://github.com/user-attachments/assets/7b70db36-1f24-4bec-afec-79c1e84b6999)
 
@@ -156,29 +157,29 @@
   
 ## (2) 전체 시스템 구성 ##
 ![KakaoTalk_20250505_225858177](https://github.com/user-attachments/assets/b3020fcf-9619-4cc6-afab-558fe42dff91) <br>
-
+<pre><code>
      FE (Frontend): React Native v.0.75, Node.js, Expo
      BE (Backend): Spring Boot 3.1.0, Spring Security 6.1.0, Spring Data JPA
        - DB: MySQL 8.0.40
        - 회원가입 및 로그인: JWT 0.11.2, Kakao login REST API
        - BE-AI 연동: FastAPI
-     AI: DeepLabV3+, OpenCV, SCHP(Self-Correction-Human-Parsing)
-
+     AI: DeepLabV3+, OpenCV, <del>DeepFashion</del> <i>SCHP(Self-Correction-Human-Parsing)</i>
+</code></pre>
 
 ## (3) 주요엔진 및 기능 설계 ##
 *텍스트 박스 내부 내용은 마크다운 형식이 적용되지 않는 점 양해 부탁드립니다.* 
-
+<pre>
     1. DeepLabV3+           
     [DeepLabV3+](https://pytorch.org/hub/pytorch_vision_deeplabv3_resnet101/) - 총 5가지 주요 뜨개질 기법(single jersey, rib, purl, ajour, moss)을 각각의 클래스로 지정한 뒤, 라벨링 및 전처리 과정을 거친 약 1만개의 데이터를 DeepLabV3 모델에 학습시켜 image segmentation 기술을 구현하였다. |
     
     2. OpenCV
      [OpenCV](https://opencv.org/) - Image Segmentation을 바탕으로 분류된 라벨에 따라서 각 라벨에 기호를 할당하여 그리드에 표현한다. Ast 모듈을 이용해서 문자열 형태로 저장된 텍스트 데이터를 python 객체로 변환시킨다. 이후 numpy를 이용하여 RGB 평균 계산을 하고 마지막으로 matplotlib.pyplot을 이용하여 데이터 시각화를 진행한다.
     
-    ~~3. DeepFashion2~~
-    ~~[DeepFashion2](https://github.com/switchablenorms/DeepFashion2) - 사용자가 업로드한 이미지에서 배경/장애물 등과 의류를 구분한다. 인식된 의류 이미지에서 구겨지거나 가려진 부분, 접힌 부분 등을 인식한 뒤, 해당 부분에 맞는 뜨개질 기법을 생성하여 그리드 도안의 옷 틀 모양의 빈 부분을 채운다.~~
+<code><del>    3. DeepFashion2
+    [DeepFashion2](https://github.com/switchablenorms/DeepFashion2) - 사용자가 업로드한 이미지에서 배경/장애물 등과 의류를 구분한다. 인식된 의류 이미지에서 구겨지거나 가려진 부분, 접힌 부분 등을 인식한 뒤, 해당 부분에 맞는 뜨개질 기법을 생성하여 그리드 도안의 옷 틀 모양의 빈 부분을 채운다.</del></code>
 
-    *3. SCHP (Self-Correction-Human-Parsing)*
-    *[SCHP](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) - 도안을 몸통/윗소매/아랫소매 등의 부위별로 분리한다.*
+<code><i>    3. SCHP (Self-Correction-Human-Parsing)
+    [SCHP](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) - 도안을 몸통/윗소매/아랫소매 등의 부위별로 분리한다.</i></code>
     
     4. JWT & Kakao login API
     [Kakao login API](https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api) - 커뮤니티 기능 중, 회원가입 및 로그인 등의 사용자 관리에 사용된다. 서비스의 보안을 위해 모든 사용자는 로그인 후 서비스를 이용할 수 있다. 또한, 로그인된 사용자 정보를 통해 게시글 CRUD, 검색, 좋아요, 북마크 등의 세부 커뮤니티 기능의 HTTP 요청 쿼리로 ‘사용자명’이 사용된다.
@@ -191,7 +192,7 @@
     
     7. 해시태그 검색
     게시글을 해시태그로 검색할 수 있다. 각 게시글에 있는 해시태그로 원하는 게시물을 검색할 수 있다. 이를 통해 빠른 정보 탐색이 가능하다.
-       
+</pre>       
 ## (4) 주요 기능의 구현 ##
 
 | **기능**                       | **설명**                                                                                                                                                        | **진척도 및 검증**                                                                                                                                                  | **이미지/기타** |
