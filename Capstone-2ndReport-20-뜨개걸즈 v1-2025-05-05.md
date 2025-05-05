@@ -155,7 +155,7 @@
   ![image (7)](https://github.com/user-attachments/assets/52f3c70d-7977-4e3b-ada6-6ada1cb64b7a)
   
 ## (2) 전체 시스템 구성 ##
-![그림2](https://github.com/user-attachments/assets/bad11cb2-9fc9-4897-98db-65a871db333b) <br>
+![KakaoTalk_20250505_225858177](https://github.com/user-attachments/assets/b3020fcf-9619-4cc6-afab-558fe42dff91) <br>
 
      FE (Frontend): React Native v.0.75, Node.js, Expo
      BE (Backend): Spring Boot 3.1.0, Spring Security 6.1.0, Spring Data JPA
@@ -188,8 +188,8 @@
     7. 해시태그 검색
     게시글을 해시태그로 검색할 수 있다. 각 게시글에 있는 해시태그로 원하는 게시물을 검색할 수 있다. 이를 통해 빠른 정보 탐색이 가능하다.
 
-    *8. SCHP (Self-Correction-Human-Parsing) 
-    [SCHP]  https://github.com/GoGoDuck912/Self-Correction-Human-Parsing*
+    *8. SCHP (Self-Correction-Human-Parsing)* 
+    *[SCHP](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing)*
        
 ## (4) 주요 기능의 구현 ##
 
