@@ -115,7 +115,7 @@
       
       - 설명: 도안 생성 시 사용자가 업로드한 이미지를 저장하는 클래스
       - 관계:
-          - DeepLab_Model, OpenCV_Processor, DeepFashion_Model이 이 이미지를 처리함
+          - DeepLab_Model, OpenCV_Processor, SCHP(Self-Correction-Human-Parsing)_Model이 이 이미지를 처리함
       
       10. DeepLab Model
       
@@ -129,7 +129,7 @@
       - 메서드:
           - process_image(): 이미지 처리 수행
       
-      12. DeepFashion_Model
+      12. SCHP(Self-Correction-Human-Parsing)_Model
       
       - 이미지 왜곡 보정 모델
       - 메서드:
@@ -139,7 +139,7 @@
       
       - 최종 생성된 도안
       - 관계:
-          - DeepLab_Model, OpenCV_Processor, DeepFashion_Model이 이 도안을 생성함
+          - DeepLab_Model, OpenCV_Processor, SCHP(Self-Correction-Human-Parsing)_Model이 이 도안을 생성함
           - User가 최종적으로 다운로드함
 ### UI 분석-설계 모델 
  ![Group 3](https://github.com/user-attachments/assets/7b70db36-1f24-4bec-afec-79c1e84b6999)
@@ -162,7 +162,7 @@
        - DB: MySQL 8.0.40
        - 회원가입 및 로그인: JWT 0.11.2, Kakao login REST API
        - BE-AI 연동: FastAPI
-     AI: DeepLabV3+, OpenCV, DeepFashion2 
+     AI: DeepLabV3+, OpenCV, SCHP(Self-Correction-Human-Parsing)
 
 
 ## (3) 주요엔진 및 기능 설계 ##
@@ -173,7 +173,7 @@
     2. OpenCV
      [OpenCV](https://opencv.org/) - Image Segmentation을 바탕으로 분류된 라벨에 따라서 각 라벨에 기호를 할당하여 그리드에 표현한다. Ast 모듈을 이용해서 문자열 형태로 저장된 텍스트 데이터를 python 객체로 변환시킨다. 이후 numpy를 이용하여 RGB 평균 계산을 하고 마지막으로 matplotlib.pyplot을 이용하여 데이터 시각화를 진행한다.
     
-    3. DeepFashion2
+    3. SCHP(Self-Correction-Human-Parsing)
     [DeepFashion2](https://github.com/switchablenorms/DeepFashion2) - 사용자가 업로드한 이미지에서 배경/장애물 등과 의류를 구분한다. 인식된 의류 이미지에서 구겨지거나 가려진 부분, 접힌 부분 등을 인식한 뒤, 해당 부분에 맞는 뜨개질 기법을 생성하여 그리드 도안의 옷 틀 모양의 빈 부분을 채운다.
     
     4. JWT & Kakao login API
@@ -195,7 +195,7 @@
 
 | **기능**                       | **설명**                                                                                                                                                        | **진척도 및 검증**                                                                                                                                                  | **이미지/기타** |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
-| **1. 이미지 업로드 <br> → 뜨개질 기법 인식<br> → ~~도안 생성~~ *그리드 도안 연결*** | 사용자가 이미지를 업로드하면, DeepLabV3 모델이 image segmentation 기술을 통해 뜨개질 기법~~과 무늬를~~*을* 인식한다. DeepFashion 모델로 이미지에서 가려진 부분, 접힌 부분 등을 인식한 뒤, 그리드 도안의 제품 틀(shape)에 맞게 빈 공간을 채운다. 마지막으로, OpenCV로 모든 데이터를 시각적으로 출력하여 최종 도안을 생성한다. | - **DeepLab**: <br>Image Segmentation <br> IoU score, accuracy 달성 <br> - **OpenCV**: <br>도안 추출 테스트 완료 <br> - **FE-BE 구현 및 연동 완료**: (50%)✅  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ![image (8)](https://github.com/user-attachments/assets/c2430269-76f9-4e8c-b766-eef96ed3552d) ![image](https://github.com/user-attachments/assets/c08d2c17-dad5-4fac-8d3e-09255c08a961) ![image](https://github.com/user-attachments/assets/776e1af4-f0e0-4ec4-8fcc-82da956a8ea9)|
+| **1. 이미지 업로드 <br> → 뜨개질 기법 인식<br> → ~~도안 생성~~ *그리드 도안 연결*** | 사용자가 이미지를 업로드하면, DeepLabV3 모델이 image segmentation 기술을 통해 뜨개질 기법~~과 무늬를~~*을* 인식한다. SCHP(Self-Correction-Human-Parsing) 모델로 이미지에서 가려진 부분, 접힌 부분 등을 인식한 뒤, 그리드 도안의 제품 틀(shape)에 맞게 빈 공간을 채운다. 마지막으로, OpenCV로 모든 데이터를 시각적으로 출력하여 최종 도안을 생성한다. | - **DeepLab**: <br>Image Segmentation <br> IoU score, accuracy 달성 <br> - **OpenCV**: <br>도안 추출 테스트 완료 <br> - **FE-BE 구현 및 연동 완료**: (50%)✅  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | ![image (8)](https://github.com/user-attachments/assets/c2430269-76f9-4e8c-b766-eef96ed3552d) ![image](https://github.com/user-attachments/assets/c08d2c17-dad5-4fac-8d3e-09255c08a961) ![image](https://github.com/user-attachments/assets/776e1af4-f0e0-4ec4-8fcc-82da956a8ea9)|
 | ***2. 도안의 부위별 분리*** | *사용자가 이미지를 업로드하면, SCHP의 Pascal 데이터셋을 이용해서 옷의 몸통과 윗소매, 아랫소매 등의 스웨터의 파트별로 인식한다. 이후에 결과값을 그리드로 전달해 부위별로 분리된 bottom-up 방식의 도안을 생성하는 것까지 연결 완료하였다.* | *90% 이상 완료, SCHP의 결과값과 그리드 코드 연결 완료, 스웨터 데이터 추가 예정*  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | <img src="https://github.com/user-attachments/assets/d956bee2-bad1-4720-acef-876770e4f6ab" width="400" height="auto"/><img src="https://github.com/user-attachments/assets/7a2443e9-6c1d-4342-865c-f343488d15bb" width="400" height="auto"/>|
 | **~~2~~*3*. 회원가입 및 로그인 <br> → 커뮤니티 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;** | 서비스를 이용하기 위해 Kakao login API를 통해 회원가입 또는 로그인을 한다. 그 후 게시글 CRUD나 댓글 등을 통해 질의응답, 정보 공유, 작품 자랑 등을 할 수 있고, 좋아요/북마크/검색 등의 세부 기능을 통해 정보 탐색 및 저장 가능. | - **FE-BE 구현 및 연동 완료**:  (50%) <br> - 커뮤니티 게시물 조회 ✅ <br> - 카카오 로그인 연동 <br> - **UI 구현 % 완료**: (80%) <br> - 전반적인 UI 구현 완료 ✅ | <img src="https://github.com/user-attachments/assets/5a3e16a0-d048-4efd-9c82-b0030ada3cd0" width="400" height="auto"/><img src="https://github.com/user-attachments/assets/c5ba9242-2e96-4ae9-a4f1-ff1081327392" width="400" height="auto"/>|
 
