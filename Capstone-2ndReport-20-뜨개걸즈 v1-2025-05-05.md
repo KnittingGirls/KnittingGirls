@@ -129,9 +129,11 @@
       - 메서드:
           - process_image(): 이미지 처리 수행
       
-      <i>12. SCHP(Self-Correction-Human-Parsing)_Model
-      
-      - 도안을 몸통/소매 등 파트별로 분리</i>
+      <del>Deep Fashion_Model</del>
+      <i>12. SCHP(Self-Correction-Human-Parsing)_Model</i>
+
+      <del>- 이미지 왜곡 보정 모델</del>
+      <i>- 도안을 몸통/소매 등 파트별로 분리</i>
       - 메서드:
           - refine_image(): 파트별 도안 분리 수행
       
