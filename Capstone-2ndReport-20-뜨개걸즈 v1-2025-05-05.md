@@ -166,6 +166,25 @@
        - 회원가입 및 로그인: JWT 0.11.2, Kakao login REST API
        - BE-AI 연동: FastAPI
      AI: DeepLabV3+, OpenCV, <del>DeepFashion</del> <i>SCHP(Self-Correction-Human-Parsing)</i>
+ 
+     <i><기능별 SW 구조 설명></i>
+     <i>(1) 도안 생성 기능: 
+           USER -> FE -> BE -> AI : 스웨터 이미지 전달, BE-> DB: 스웨터 이미지 저장
+           AI (FastAPI를 통해 BE와 연결됨) 
+             - DEEPLABV3+: image segmentaion으로 스웨터에서 뜨개기법 검출
+             - SCHP(Self-Correction-Human-Parsing) : 스웨터의 소매와 몸통 등을 분리, 도안과 매칭할 수 있도록 함
+             - Python과 OpenCV를 기반으로 최종 그리드 도안 생성 후 반환
+           AI -> BE -> FE -> USER : PDF 형식의 도안 전달 </i>
+     <i>(2) 커뮤니티 기능: 
+           USER -> FE -> BE: 사용자의 게시물, 댓글 관련 기능 요청 
+           BE -> DB : 게시물 및 댓글 CRUD 처리
+           BE -> FE -> USER : 사용자의 요청에 따른 결과 반환</i>
+     <i>(3) 로그인 기능: 
+           FE: 카카오 로그인 API 호출 
+           BE: 로그인 처리
+           BE-> FE: JWT 토큰 반환
+           BE -> DB: 로그인 관련 정보 저장
+           FE: 사용자에게 로그인 결과 반환</i>
 </code></pre>
 
 ## (3) 주요엔진 및 기능 설계 ##
