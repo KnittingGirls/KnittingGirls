@@ -4,3 +4,6 @@
 [submodule "FrontEnd"]
 	path = FrontEnd
 	url = git@github.com:KnittingGirls/FrontEnd.git
+[submodule "AI"]
+	path = AI
+	url = git@github.com:KnittingGirls/AI.git
