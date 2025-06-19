@@ -1,7 +1,6 @@
 # 🧶 KnittingGirls
 
-> **팀**: 20. 뜨개걸즈  
-> **팀원**  
+> 20. 뜨개걸즈  
 > - FE: 이유진 (2176279) [@YJin33](https://github.com/YJin33)  
 > - BE: 서자영 (2170045) [@xeoxaxeo](https://github.com/xeoxaxeo)  
 > - AI: 박지현 (2171016) [@jihyeun-park](https://github.com/jihyeun-park)  
@@ -9,8 +8,9 @@
 > **📥 최종 APK 다운로드**  
 > 👉 [FrontEnd Release APK](https://drive.google.com/drive/folders/1HJ693vNUebx3s9e7kfsIXctsZxBzqi4e?hl=ko)  
 
-KnittingGirls는 뜨개질 제품 사진을 AI 모델로 분석해 자동 도안 PDF를 생성하고, 커뮤니티 기능을 제공하는 올인원 플랫폼입니다.  
-세 개의 독립 모듈(AI · BackEnd · FrontEnd)을 서브모듈로 포함하며, 각 파트를 분리된 레포지토리에서 개발·배포합니다.
+'털실과 그레텔'은 뜨개질 제품 사진을 AI 모델로 분석해 자동으로 도안 PDF를 생성하고, 커뮤니티 기능을 제공하는 올인원 어플리케이션입니다.  
+세 개의 독립 모듈(AI · BackEnd · FrontEnd)을 서브모듈로 포함하며, 각 파트를 분리된 레포지토리에서 개발·배포하였습니다.
+각 서브 모듈의 자세한 설치 및 실행, 빌드 방법은 해당 레포지토리에 상세하게 기술되어 있으며, 본 파일에서는 간단한 요약만 제공합니다.
 
 ---
 
@@ -30,13 +30,13 @@ KnittingGirls는 뜨개질 제품 사진을 AI 모델로 분석해 자동 도안
 
 ---
 
-## 🚀 프로젝트 개요
+## 프로젝트 개요
 
 - **목표**  
-  1. 이미지 세그멘테이션 기반 뜨개 기법·신체 부위 인식  
-  2. 3×3 심볼 타일 PDF 도안 자동 생성  
-  3. 게시글·댓글·북마크·좋아요 등 커뮤니티 기능  
-  4. React-Native Android 앱 배포  
+  - 이미지 세그멘테이션 기반 뜨개 기법·신체 부위 인식  
+  - 3×3 심볼 타일 PDF 도안 자동 생성  
+  - 게시글·댓글·북마크·좋아요 등 커뮤니티 기능  
+  - React-Native Android 앱 배포  
 
 - **모듈 구성**  
   - **AI**: DeepLabV3+·SCHP 모델 학습·평가 노트북  
@@ -45,7 +45,7 @@ KnittingGirls는 뜨개질 제품 사진을 AI 모델로 분석해 자동 도안
 
 ---
 
-## 📂 레포지토리 구조
+## 레포지토리 구조
 
 ```
 KnittingGirls/                     ← 메인 레포지토리
@@ -58,7 +58,7 @@ KnittingGirls/                     ← 메인 레포지토리
 
 ---
 
-## ⚙️ 설치 및 빌드
+## 설치 및 빌드
 
 ### 1) 메인 레포 클론 (서브모듈 포함)
 ```bash
@@ -85,8 +85,8 @@ cd ml_server
 source venv/bin/activate
 uvicorn final_model_server:app --host 0.0.0.0 --port 8000 --reload
 ```
-- **BackEnd API**: `http://<서버_IP>:8080`  
-- **ML 서버**: `http://<서버_IP>:8000`  
+- **BackEnd API**: `http://43.201.186.153:8080`  
+- **ML 서버**: `http://43.201.186.153:8000`  
 
 ### 3) FrontEnd 앱 (Android)
 ```bash
@@ -96,8 +96,8 @@ cd FrontEnd
 npm install
 
 # 2. 환경 변수 설정
-echo "EXPO_PUBLIC_IPHOST=<서버_IP>" > .env
-echo "EXPO_POST_BASE_URL=http://<서버_IP>:8080/posts" >> .env
+echo "EXPO_PUBLIC_IPHOST=43.201.186.153" > .env
+echo "EXPO_POST_BASE_URL=http://43.201.186.153:8080/posts" >> .env
 
 # 3. APK 빌드
 ## (1) Expo prebuild & Android Studio 방식
@@ -130,24 +130,24 @@ jupyter lab
 
 ---
 
-## ✅ 테스트 방법
+## 테스트 방법
 
 1. **API 테스트** (curl / Postman)
    ```bash
    # 게시글 목록 조회
-   curl http://<서버_IP>:8080/posts
+   curl http://43.201.186.153:8080/posts
 
    # 도안 생성 요청
-   curl -X POST http://<서버_IP>:8000/predict -F file=@./sample.jpg
+   curl -X POST http://43.201.186.153:8000/predict -F file=@./sample.jpg
 
    # 생성된 PDF 다운로드
-   curl http://<서버_IP>:8000/pdfs/{filename}.pdf
+   curl http://43.201.186.153:8000/pdfs/{filename}.pdf
    ```
 
 2. **앱 기능 확인**
-   1. APK 설치 후 로그인
-   2. 도안 생성 → 커뮤니티 사용
-   3. 내 게시글 / 좋아요 / 북마크 확인
+   - APK 설치 후 로그인
+   - 도안 생성 → 커뮤니티 사용
+   - 내 게시글 / 좋아요 / 북마크 확인
 
 3. **모델 성능**
    - DeepLabV3+ IOU: 0.72  
@@ -155,7 +155,7 @@ jupyter lab
 
 ---
 
-## 📊 샘플 데이터
+## 샘플 데이터
 
 - **AI/data/**: 학습·검증용 이미지 및 라벨
 - **BackEnd/backend/db/**: MySQL 덤프 스크립트 (`*.sql`)
@@ -163,7 +163,7 @@ jupyter lab
 
 ---
 
-## 🗄️ 데이터베이스
+## 데이터베이스
 
 - **MySQL 8.0+**
 - **스키마 테이블**:
@@ -186,7 +186,7 @@ USE knitting_girls;
 
 ---
 
-## 📦 오픈소스 및 라이선스
+## 오픈소스 및 라이선스
 
 - **DeepLabV3+** (MIT) – 이미지 세그멘테이션
 - **SCHP** (Apache-2.0) – Human Parsing
